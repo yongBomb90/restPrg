@@ -5,6 +5,8 @@ import com.example.restprg.biz.order.domain.OrderEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.*;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.*;
 
 import javax.persistence.CascadeType;
@@ -13,12 +15,16 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 고객 정보를 담은 Entity
  */
-@ToString
+@NamedEntityGraph(
+        name = "Member.withOrder", attributeNodes = {@NamedAttributeNode("orders")}
+)
+@ToString(exclude = {"orders"})
 @Data
 @Entity
 @Table(name = "MEMBER")
@@ -57,14 +63,13 @@ public class MemberEntity  {
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     @OrderBy("ordDate desc")
-    private List<OrderEntity> orders;
+    private List<OrderEntity> orders ;
 
     public enum SEX {
         M, // 남자
         F, // 여자
         X; // 미입력
     }
-
 
 }
 

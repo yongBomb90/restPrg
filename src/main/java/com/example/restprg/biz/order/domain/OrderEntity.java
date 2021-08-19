@@ -2,6 +2,8 @@ package com.example.restprg.biz.order.domain;
 
 import com.example.restprg.biz.member.domain.MemberEntity;
 import lombok.*;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -11,7 +13,7 @@ import org.springframework.data.domain.Page;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-
+@ToString(exclude = {"member"})
 @Data
 @Entity
 @Table(name = "ORD")
@@ -29,9 +31,6 @@ public class OrderEntity {
     @Column(name = "PRD_NAME")
     private String prdName;
 
-    @Column(name = "MEM_SEQ")
-    private Integer memSeq;
-
     @Column(name = "PAY_DATE")
     private Timestamp payDate; // 결제일자
 
@@ -46,7 +45,8 @@ public class OrderEntity {
     private Timestamp uptDate; // 수정일자
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn( name = "MEM_SEQ" , referencedColumnName = "SEQ" , insertable = false, updatable = false)
+    @JoinColumn( name = "MEM_SEQ" , referencedColumnName = "SEQ" , insertable = true, updatable = true)
     private MemberEntity member;
+
 
 }
