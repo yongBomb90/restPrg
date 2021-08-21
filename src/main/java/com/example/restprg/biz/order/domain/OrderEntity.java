@@ -24,7 +24,11 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class OrderEntity {
 
+
     @Id
+    @Column(name = "SEQ")
+    private Long seq;
+
     @Column(name = "ORD_NUM")
     private String ordNum;
 
