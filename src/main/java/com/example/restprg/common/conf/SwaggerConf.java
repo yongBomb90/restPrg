@@ -12,6 +12,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
+/**
+Swagger Config 비작동....
+**/
 @Configuration
 @EnableSwagger2WebMvc
 @Import(SpringDataRestConfiguration.class)
