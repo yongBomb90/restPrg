@@ -20,7 +20,11 @@ Swagger Config 비작동....
 @Import(SpringDataRestConfiguration.class)
 public class SwaggerConf {
 
-
+    
+    /**
+    전체 DOC PATH 설정 
+    현재 동작하지 않음 security 연동시 exclude 필요
+    **/
     @Bean
     public Docket api() {
 
