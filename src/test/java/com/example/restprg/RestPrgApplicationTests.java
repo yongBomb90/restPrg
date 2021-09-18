@@ -13,6 +13,9 @@ import org.springframework.test.annotation.Rollback;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+jpa 테스트 환경 설정
+**/
 @SpringBootTest
 class RestPrgApplicationTests {
 
@@ -29,13 +32,6 @@ class RestPrgApplicationTests {
     @Transactional
     @Rollback(value = false)
     void contextLoads() {
-//        List<MemberEntity> list = memberRepo.findMemberEntityByEmailALL("123@123");
-//
-//        for( int i = 0; i < list.size(); i++ ) {
-//            System.out.println("========================================");
-//            System.out.println(list.get(i).getOrders().toString());
-//            System.out.println("========================================");
-//        }
 
         List<MemberEntity> list2 = memberRepo.findMemberEntityByPrdName("상품");
         list2.get(0).setNickName("닉네임1");
@@ -58,15 +54,6 @@ class RestPrgApplicationTests {
 
         MemberEntity getOne = memberRepo.getById(1);
         MemberEntity gettwo = memberRepo.findById(2).orElse( null ) ;
-
-
-        System.out.println("========================================");
-        System.out.println(gettwo.getEmail());
-        System.out.println("========================================");
-
-        System.out.println("========================================");
-        System.out.println(getOne.getEmail());
-        System.out.println("========================================");
 
 
     }
