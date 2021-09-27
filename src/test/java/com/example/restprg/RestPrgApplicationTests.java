@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
 jpa 테스트 환경 설정
+TODO : 공통 모듈생성
 **/
 @SpringBootTest
 class RestPrgApplicationTests {
