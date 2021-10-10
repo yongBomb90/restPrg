@@ -58,5 +58,14 @@ class RestPrgApplicationTests {
 
 
     }
+    
+    @Test
+    @Transactional
+    @Rollback(value = false)
+    void 생성() {
+
+
+    }
+
 
 }
