@@ -1,9 +1,7 @@
 package com.example.restprg;
 
 import com.example.restprg.biz.member.domain.MemberEntity;
-import com.example.restprg.biz.member.repo.MemberRepo;
 import com.example.restprg.biz.member.repo.MemberRepository;
-import com.example.restprg.biz.order.domain.OrderEntity;
 import com.example.restprg.biz.order.repo.OrderRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
